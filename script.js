@@ -70,12 +70,5 @@ if (isMobile()) {
   desktopAnimation()
 }
 
-window.addEventListener('resize', () => {
-  utils.remove('.button');
-  if (isMobile()) {
-    mobileAnimation()
-  } else {
-    desktopAnimation()
-  }
-})
+
 
