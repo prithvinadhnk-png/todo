@@ -64,6 +64,13 @@ function mobileAnimation() {
     }, '100')
 }
 
+const openbtn = document.getElementById("open")
+const popup = document.getElementById("SignUpPopUp")
+
+openbtn.addEventListener("click",()=>{
+  popup.style.display="block"
+})
+
 if (isMobile()) {
   mobileAnimation()
 } else {
