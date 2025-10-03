@@ -77,12 +77,13 @@ body {
     -webkit-backdrop-filter: blur(24px) saturate(131%);
     background-color: rgba(17, 25, 40, 0.16);
     border-radius: 12px;
-    border: 4px solid rgba(255, 255, 255, 0.125);
+    border: 2px solid rgba(255, 255, 255, 0.125);
     position: absolute;
     display: none;
     z-index: 1000;
     color: var(--light);
     opacity: 0;
+    
 }
 
 .signUpForm{
@@ -96,13 +97,29 @@ body {
     border-radius: 5px;
     outline: 0px;
     letter-spacing: 0.2rem;
+    padding-left: 1rem !important;
 }
 
 .signUpForm::placeholder{
     font-size: 0.7rem;
     color: var(--light);
-    padding-left:10px;
     letter-spacing: 0.1rem;
+}
+
+#close{
+    cursor: pointer;
+}
+#close:hover{
+    transform: scale(1.1);
+}
+
+#close:active{
+    animation: mymove 1s infinite;
+
+}
+
+@keyframes mymove {
+  100%{transform: rotate(180deg);}
 }
 
 

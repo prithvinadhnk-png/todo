@@ -65,11 +65,11 @@ function mobileAnimation() {
 }
 
 const openbtn = document.getElementById("open")
+const closebtn = document.getElementById("close")
 const popup = document.getElementById("SignUpPopUp")
 
 openbtn.addEventListener("click", () => {
-  popup.style.display = "block"
-
+  popup.style.display = "block";
   animate(popup, {
     translateY: [100, 0],
     opacity: [0, 1],
@@ -78,9 +78,25 @@ openbtn.addEventListener("click", () => {
       duration: 628
     })
   })
+})
 
+closebtn.addEventListener("click", () => {
 
+  animate(popup, {
+    translateY: [0, 100],
+    duration:600,
+    opacity:[1,0],
+    ease: spring({
+      bounce: 0.5,
 
+    }),
+    loop:0,
+    alternate:true,
+    onComplete: () => {
+      popup.style.display='none'
+    }
+  })
+ 
 })
 
 if (isMobile()) {
