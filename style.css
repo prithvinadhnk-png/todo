@@ -1,6 +1,6 @@
 :root {
     --light: #E7FBB4;
-    --darkGreen: #638C6D;
+    --darkGreen: rgb(99, 140, 109);
     --lightOrange: #DF6D2D;
     --orange: #C84C05;
 }
@@ -40,11 +40,24 @@ body {
 
 }
 
-.button{
-    margin:0;
+.button {
+    margin: 0;
     padding: 0;
     display: inline-block;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
 }
 
+.button:hover {
+    box-shadow: 0px 5px 0px rgb(63, 90, 70);
+    border-radius: 8px;
+    transform: rotateX(30deg) translateY(0) !important;
+}
 
-
+.button:hover:active {
+  box-shadow: 0 1px 0 #423847;
+  background: radial-gradient(ellipse at center, rgb(86, 122, 95) 0%, rgb(116, 161, 128)0%);
+  transition: transform 0.05s, box-shadow 0.05s;
+  transform: rotateX(30deg) translateY(4px);
+}
