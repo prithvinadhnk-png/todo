@@ -83,9 +83,8 @@ openbtn.addEventListener("click", () => {
 closebtn.addEventListener("click", () => {
 
   animate(popup, {
-    translateY: [0, 100],
+    translateY: [0,1000],
     duration:600,
-    opacity:[1,0],
     ease: spring({
       bounce: 0.5,
 
