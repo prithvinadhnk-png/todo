@@ -82,6 +82,7 @@ body {
     display: none;
     z-index: 1000;
     color: var(--light);
+    opacity: 0;
 }
 
 .signUpForm{

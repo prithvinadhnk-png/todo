@@ -1,10 +1,10 @@
 
-import { createTimeline, stagger, utils, splitText, animate } from 'https://esm.sh/animejs';;
+import { createTimeline, stagger, utils, splitText, animate, spring } from 'https://esm.sh/animejs';;
 
 const buttons = document.querySelectorAll(".button");
 buttons.forEach(btn => {
 });
-const {  chars } = splitText('.split', {
+const { chars } = splitText('.split', {
   words: { wrap: 'clip' },
   chars: true,
 });
@@ -23,11 +23,11 @@ createTimeline({
 })
   .add(chars, {
     y: [$el => +$el.dataset.line % 2 ? '100%' : '-100%', '0%'],
-    delay:stagger(125)
+    delay: stagger(125)
   })
   .add(words, {
     y: [$el => +$el.dataset.line % 2 ? '100%' : '-100%', '0%'],
-    delay:stagger(125),
+    delay: stagger(125),
   }, '50') // overlap previous animation
   .init();
 
@@ -67,8 +67,20 @@ function mobileAnimation() {
 const openbtn = document.getElementById("open")
 const popup = document.getElementById("SignUpPopUp")
 
-openbtn.addEventListener("click",()=>{
-  popup.style.display="block"
+openbtn.addEventListener("click", () => {
+  popup.style.display = "block"
+
+  animate(popup, {
+    translateY: [100, 0],
+    opacity: [0, 1],
+    ease: spring({
+      bounce: 0.5,
+      duration: 628
+    })
+  })
+
+
+
 })
 
 if (isMobile()) {
