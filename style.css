@@ -113,8 +113,8 @@ body {
     transform: scale(1.1);
 }
 
-#close:active{
-    animation: mymove 1s infinite;
+#close:hover:active{
+    animation: mymove 0.1s infinite;
 
 }
 
