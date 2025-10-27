@@ -11,7 +11,7 @@ const menutext = document.querySelectorAll('.menu-text')
 menuicons.forEach(icon => {
   icon.addEventListener('mouseenter', () => {
     animate(icon, {
-      scale: 1.1,
+      scale: 1.5,
       duration: 300,
       color: "#2b434eff",
       ease: spring({

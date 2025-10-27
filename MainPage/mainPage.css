@@ -3,37 +3,47 @@
     --darkGreen: #112315;
     --lightOrange: #f5935b;
     --orange: #C84C05;
-    --mint: hwb(159 65% 16%);
-    --cream:#a7ffbd;
+    --mint: hwb(158 12% 81%);
+    --cream: #222e25;
     --coral: #ff9770;
     --charcoal: #2f3e46;
+    
 
 }
 
 .firstPage {
     background-color: var(--light);
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
+    background-size: 120px 120px;
+
 }
 
 
 
 .navfont {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
 }
 
 .menubar {
-    background-color: var(--darkGreen);
-    color: white;
+    /* semi-transparent background */
+    color: black;
     letter-spacing: 0.2rem;
 }
 
+
+
+
+
 .menuSearch {
-    background-color: #ffffff10;
+    background-color: #74717113;
     border: none;
     border-radius: 0.6rem;
     outline: none;
     height: 3rem;
     padding-left: 0.7rem;
-    color: white;
+    color: black;
     font-family: 'Nagaiya', sans-serif !important;
     font-weight: bolder;
     letter-spacing: 0.15rem;
@@ -47,7 +57,7 @@
 
 .menuSearch::placeholder {
     padding-left: 0.2rem;
-    color: #ffffff67;
+    color: #00000067;
     font-size: 1.2rem;
 }
 
@@ -59,7 +69,7 @@
 
 .input-container svg {
     position: absolute;
-    right: 20px;
+    right: 14px;
     top: 25%;
 
 
@@ -69,7 +79,7 @@
 .menu-icons {
     color: var(--cream);
     font-size: clamp(2.5rem, 5vw, 4rem);
-    display: inline-block;
+    display: inline-block !important;
     /* allows transform to work */
     transform-origin: center;
 
