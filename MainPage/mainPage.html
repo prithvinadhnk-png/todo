@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do | Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/within.min.css" integrity="sha256-4qLHDhzuDV3IgrWCWtrSlFovj05xXNXXOjXF5Oxsg4Y=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/eclipse.css"
+        integrity="sha256-xBmrwsmxSwonoyqTVOBISgOfgUlBmMgNZ7VneZ20SWc=" crossorigin="anonymous">
     <link rel="stylesheet" href="../GlobalStyle.css">
     <link rel="stylesheet" href="mainPage.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
@@ -39,9 +40,9 @@
     }
 
     .glassDiv {
-        position: absolute;
+        position: relative;
         border-radius: 28px;
-        isolation: isolate;
+        z-index: 1000;
         /* enable pointer dragging on touch */
         box-shadow: 0px 6px var(--outer-shadow-blur) rgba(0, 0, 0, 0.2);
     }
@@ -71,51 +72,90 @@
     }
 </style>
 
-<body class="firstPage justify-content-center d-flex">
+<body class="firstPage ">
+    <section class="justify-content-center d-lg-flex d-none d-flex w-100 top-section sticky-top">
+        <!-- menubar -->
 
-    <!-- menubar -->
-    <div class="row  g-0 menubar glassDiv py-3 px-4 my-3 pe-0 me-0 ">
+        <div class="row  g-0 menubar glassDiv py-3 px-4 my-3  ">
 
-        <!--Menu Bar Heading-->
-        <div class="col-4 pe-3" style="border-right: 2px #f5935b solid;">
-            <h1 class="navfont text-start magic-growing m-0 p-0">
-                To-Do
-            </h1>
+            <!--Menu Bar Heading-->
+            <div class="col-6 pe-3" style="border-right: 2px #346b40 solid;">
+                <h1 class="navfont text-start magic-growing m-0 p-0 split" style="color: #204627; cursor:pointer">
+                    <a href="../index.html" style="all:unset">
+                        To-Do
+                    </a>
+                </h1>
 
-            <!--Search Bar-->
-            <div class="input-container m-0 p-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#00000088" class="bi bi-search "
-                    viewBox="0 0 16 16" id="search-icon">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
-                <input type="text" class="menuSearch" placeholder="Search....">
+                <!--Search Bar-->
+                <div class="input-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#00000088" class="bi bi-search"
+                        viewBox="0 0 16 16" id="search-icon">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                    <input type="text" class="menuSearch " placeholder="Search your task....">
+                </div>
+            </div>
+            <!--Menu Icons-->
+            <div class="nag menu-icons col-6  d-flex align-items-center px-4 ps-3">
+                <i class="fi fi-tr-duration pe-2 menu-icons-animation" title="Pomodoro Timer"></i>
+                <button class="theme-toggle theme-toggle--toggled  menu-icons-animation" type="button"
+                    title="Toggle theme" aria-label="Toggle theme" style=" color: rgb(53, 75, 58); z-index: 50; ">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="5rem" height="5rem"
+                        class="theme-toggle__eclipse" fill="currentColor" viewBox="0 0 32 32">
+                        <clipPath id="theme-toggle__eclipse__cutout">
+                            <path d="M0 0h64v32h-64zm36 16a1 1 0 0024 1 1 1 0 00-24-1" />
+                        </clipPath>
+                        <g clip-path="url(#theme-toggle__eclipse__cutout)">
+                            <circle cx="16" cy="16" r="16" />
+                        </g>
+                    </svg>
+                </button>
+                <i class="fi fi-tr-circle-user ps-2 m-1 menu-icons-animation" title="Profile"></i>
             </div>
         </div>
-        <!--Menu Icons-->
-        <div class="nag menu-icons col-8 me-0 pe-0">
-            <i class="fi fi-tr-duration px-2 ps-4"></i>
-            <button class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme"
-                style="position: relative; top: -12%; ">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="theme-toggle__within" height="5rem"
-                    width="5rem" viewBox="0 0 32 32" fill="currentColor">
-                    <clipPath id="theme-toggle__within__clip">
-                        <path d="M0 0h32v32h-32ZM6 16A1 1 0 0026 16 1 1 0 006 16" />
-                    </clipPath>
-                    <g clip-path="url(#theme-toggle__within__clip)">
-                        <path
-                            d="M30.7 21.3 27.1 16l3.7-5.3c.4-.5.1-1.3-.6-1.4l-6.3-1.1-1.1-6.3c-.1-.6-.8-.9-1.4-.6L16 5l-5.4-3.7c-.5-.4-1.3-.1-1.4.6l-1 6.3-6.4 1.1c-.6.1-.9.9-.6 1.3L4.9 16l-3.7 5.3c-.4.5-.1 1.3.6 1.4l6.3 1.1 1.1 6.3c.1.6.8.9 1.4.6l5.3-3.7 5.3 3.7c.5.4 1.3.1 1.4-.6l1.1-6.3 6.3-1.1c.8-.1 1.1-.8.7-1.4zM16 25.1c-5.1 0-9.1-4.1-9.1-9.1 0-5.1 4.1-9.1 9.1-9.1s9.1 4.1 9.1 9.1c0 5.1-4 9.1-9.1 9.1z" />
-                    </g>
-                    <path class="theme-toggle__within__circle"
-                        d="M16 7.7c-4.6 0-8.2 3.7-8.2 8.2s3.6 8.4 8.2 8.4 8.2-3.7 8.2-8.2-3.6-8.4-8.2-8.4zm0 14.4c-3.4 0-6.1-2.9-6.1-6.2s2.7-6.1 6.1-6.1c3.4 0 6.1 2.9 6.1 6.2s-2.7 6.1-6.1 6.1z" />
-                    <path class="theme-toggle__within__inner"
-                        d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z" />
-                </svg>
-            </button>
-            <i class="fi fi-tr-pen-field px-2 "></i>
+    </section>
+    <div class="content-wrapper  d-lg-block  d-none  align-items-center" style=" padding: 0;">
 
-            <i class="fi fi-tr-bell px-2"></i>
-            <i class="fi fi-tr-duration px-2"></i>
+
+        <div class="row flex-grow-1 g-0 align-items-center">
+            <div class="list-background  col-md-1 ps-4 pe-4 py-3 nag">
+                <p class="listfont m-0">All tasks</p>
+                <hr>
+                <p class="listfont m-0">Personal</p>
+                <hr>
+                <p class="listfont m-0">Work</p>
+                <hr>
+                <p class="listfont m-0">Study</p>
+                <hr>
+                <p class="listfont m-0">Add(+)</p>
+            </div>
+            <div class="col-md-4 px-3">
+                <div class="task-background ps-4 pe-4 py-3 nag">
+                    this <br>
+                    is <br>
+                    for <br>
+                    testing <br>
+                    purpose <br>
+                    please <br>
+                    ignore <br>
+                    this<br>
+                    section
+                </div>
+            </div>
+            <div class="col-md-7 pe-4">
+                <div class="task-background ps-4 pe-4 py-3 nag">
+                    this <br>
+                    is <br>
+                    for <br>
+                    testing <br>
+                    purpose <br>
+                    please <br>
+                    ignore <br>
+                    this<br>
+                    section
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,14 +1,102 @@
 import { createTimeline, stagger, utils, splitText, animate, spring } from 'https://esm.sh/animejs';;
 
+//list font hover animation
+const listfont = document.querySelectorAll('.listfont');
+listfont.forEach(listfonts => {
+  listfonts.addEventListener('mouseover', () => {
+    animate(listfonts, {
+      color: "#ffffffff",
+      scale: 1.1,
+      duration: 300,
+      ease: 'outBack(1.7)'
+    })
+  })
+  listfonts.addEventListener('mouseout', () => {
+    animate(listfonts, {
+      color: "#E7FBB4",
+      scale: 1,
+      ease: 'outBack(1.7)'
+    })
+  })
+  listfonts.addEventListener('click', () => {
+    animate(listfonts, {
+      color: ["#ffffffa2", "#ffffffff"],
+      scale: [1.02, 1.1],
+      duration: 500,
+      ease: 'outBack(1.7)'
+    })
+  })
+})
 
-const searchbar = document.getElementsByClassName('menuSearch')[0]
-const searchicon = document.getElementById('search-icon')
-const menutext = document.querySelectorAll('.menu-text')
+//navbar font animation & listbar & menubar slide-in animation
+const menubar = document.querySelector('.menubar')
+const listbar = document.querySelector('.list-background')
+const { chars } = splitText('.split', {
+  words: { wrap: 'clip' },
+  chars: true,
+});
 
+createTimeline({
+  loop: false,
+  defaults: { ease: 'inOut(3)', duration: 650 },
+  direction: "normal"
+})
+  .add(menubar, {
+    translateY: [-100, 0],
+    duration: 1000,
+    ease: 'outExpo'
 
+  }, 0)
+  .add(listbar, {
+    translateX: [-200, 0],
+    duration: 1000,
+    ease: 'outExpo'
 
+  }, 0)
+  .add(chars, {
+    y: [$el => +$el.dataset.line % 2 ? '100%' : '-100%', '0%'],
+    delay: stagger(125)
+  }, 10)
+  .init();
+
+//menu icon hover animation
+const menuicon = document.querySelectorAll('.menu-icons-animation')
+menuicon.forEach(element => {
+  element.addEventListener('mouseover', () => {
+    animate(element, {
+      scale: 1.2,
+      ease: spring({
+        bounce: 0.65,
+        duration: 400
+      })
+
+    })
+  })
+
+  element.addEventListener('mouseout', () => {
+    animate(element, {
+      scale: 1,
+      ease: spring({
+        bounce: 0.65,
+        duration: 400
+      })
+
+    })
+  })
+  if (element === menuicon[1]) return;
+  element.addEventListener('click', () => {
+    animate(element, {
+      color: "#000000a2",
+      scale: [1.02, 1.2],
+      duration: 1000,
+      ease: 'outBack(1.7)'
+    })
+  })
+
+})
 
 //search bar colour differing animation while focused
+const searchbar = document.getElementsByClassName('menuSearch')[0]
 searchbar.addEventListener('focus', () => {
   animate(searchbar, {
     rotateX: 25,
@@ -47,6 +135,7 @@ searchbar.addEventListener('blur', () => {
 })
 
 //search icon animation on pressing enter
+const searchicon = document.getElementById('search-icon')
 searchbar.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     animate(searchicon, {
@@ -69,47 +158,9 @@ searchbar.addEventListener("keydown", e => {
   }
 });
 
-
-document.querySelector('.theme-toggle').addEventListener('click', function() {
-    this.classList.toggle('theme-toggle--toggled');
+document.querySelector('.theme-toggle').addEventListener('click', function () {
+  this.classList.toggle('theme-toggle--toggled');
 
 });
 
-// ...existing code...
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeBtn = document.querySelector('.theme-toggle');
-    if (!themeBtn) return;
-
-    // Ensure smooth animated scaling (applied via JS so no CSS changes needed)
-    themeBtn.style.transition = 'transform 160ms cubic-bezier(.2,.8,.2,1)';
-    themeBtn.style.transformOrigin = 'center';
-    themeBtn.style.willChange = 'transform';
-
-    // Ensure aria state exists
-    if (themeBtn.getAttribute('aria-pressed') === null) {
-        themeBtn.setAttribute('aria-pressed', 'false');
-    }
-
-    // Toggle scale on click: larger when "pressed"/toggled on, normal otherwise
-    themeBtn.addEventListener('click', () => {
-        const pressed = themeBtn.getAttribute('aria-pressed') === 'true';
-        themeBtn.setAttribute('aria-pressed', String(!pressed));
-        themeBtn.style.transform = !pressed ? 'scale(1.18)' : 'scale(1)';
-    });
-
-    // Optional: quick press feedback (keeps final scale consistent with toggle state)
-    themeBtn.addEventListener('pointerdown', () => {
-        themeBtn.style.transition = 'transform 80ms';
-        themeBtn.style.transform = 'scale(1.05)';
-    });
-    ['pointerup', 'pointercancel', 'pointerleave'].forEach(evt => {
-        themeBtn.addEventListener(evt, () => {
-            themeBtn.style.transition = 'transform 160ms cubic-bezier(.2,.8,.2,1)';
-            const pressed = themeBtn.getAttribute('aria-pressed') === 'true';
-            themeBtn.style.transform = pressed ? 'scale(1.18)' : 'scale(1)';
-        });
-    });
-});
-
-// ...existing code...
