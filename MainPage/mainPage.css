@@ -188,3 +188,7 @@ body{
     line-height: 0rem;
 
 }
+
+* {
+  outline: 1px solid red;
+}
