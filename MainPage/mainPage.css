@@ -2,7 +2,7 @@
     --light: #E7FBB4;
     --darkGreen: rgb(73, 102, 80);
     --lightOrange: #f5935b;
-    --orange: #C84C05;
+    --orange: rgb(200, 76, 5);
     --mint: hwb(158 12% 81%);
     --cream: #222e25;
     --coral: #ff9770;
@@ -77,35 +77,21 @@
 .list-background {
     border-radius: 0px 14px 14px 0px;
     color: rgb(255, 255, 255);
-
+    width: fit-content !important;
     z-index: 100;
-    box-shadow:
-        inset var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
-    background-color: #19411f91;
-    
+    border: 3px rgba(255, 255, 255, 0.192) solid;
+    border-left: 0px;
+    background-color: #19411fb2;
+
 }
-
-
-.task-background {
-    border-radius: 0px 14px 14px 0px;
-    color: rgb(255, 255, 255);
-    border-radius: 28px;
-    min-height: 70vh;
-    box-shadow:
-        inset var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
-    background-color: var(--orange);
-    opacity: 0.5;
-}
-
-
 
 
 .listfont {
     font-weight: bolder;
-    letter-spacing: 0.2rem;
+    letter-spacing: clamp(0.05rem, 0.15vw, 0.2rem);
     color: var(--light);
     cursor: pointer;
-    font-size:clamp(2rem, calc(6vh+1.5rem), 2rem) !important;
+    font-size: 1.4rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -114,4 +100,86 @@
 .content-wrapper {
     width: 100%;
     gap: 2rem;
+}
+
+
+
+.filter-task button,
+.filter-task select {
+    background: rgba(26, 53, 22, 0.475);
+    outline: none;
+    border: none;
+    z-index: 10;
+    border-top: rgba(0, 0, 0, 0.323) solid 1px;
+    border-bottom: rgba(0, 0, 0, 0.323) solid 1px;
+    border-right: #194a10c1 solid 1px;
+    color: var(--light);
+    font-family: 'Nagaiya', sans-serif !important;
+    font-weight: bolder;
+    letter-spacing: 0.15rem;
+    font-size: 0.8rem;
+}
+
+
+
+
+.add-task {
+    background-color: rgba(26, 53, 22, 0.788) !important;
+    color: #d4e7a2 !important;
+    font-size: 1rem !important;
+}
+
+.add-task:active {
+    background-color: rgba(26, 53, 22, 0.253) !important;
+    color: white !important;
+}
+
+.week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1.5rem;
+    font-weight: bolder;
+
+
+}
+
+.date {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* Reserve consistent row height so switching months doesn't change container size */
+    grid-auto-rows: 3.8rem;
+    row-gap: 0.4rem;
+    align-items: center;
+    /* Keep space for up to 6 weeks to avoid layout jumps when month has extra rows */
+    min-height: calc((3.8rem + 0.4rem) * 6);
+}
+
+.calendar-Background {
+
+    background-color: #38633eec;
+    border-radius: 24px;
+    color: rgb(131, 175, 131);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dateElement {
+    padding-block: 0.5rem;
+    font-size: 1.9rem;
+    font-weight: bolder;
+    color: rgb(172, 226, 173);
+    cursor: pointer;
+    
+}
+.dateElementGreyed {
+    padding-block: 0.5rem;
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: rgba(172, 226, 173, 0.171);
+    
+}
+
+.menu-icons-mobile{
+    font-size: 2.5rem;
+    line-height: 0rem;
+
 }
