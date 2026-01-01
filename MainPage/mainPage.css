@@ -11,19 +11,13 @@
 }
 body{
     height:100%;
-    margin:0;
-    padding:0;
+    margin:0 !important;
+    padding:0 !important;
 
 }
 .firstPage {
     background-color: var(--light);
-    /* Prefer dynamic viewport unit in modern browsers (fixes Chrome mobile). */
     height: 100dvh;
-    /* Fallback to JS-driven --vh variable for broader support */
-    height: calc(var(--vh, 1vh) * 100);
-    min-height: 100%;
-    /* Make room for the fixed mobile footer so the grid doesn't end early */
-    padding-bottom: calc(var(--footer-height, 64px) + env(safe-area-inset-bottom, 0px));
     background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
     background-size: 120px 120px;
 
