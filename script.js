@@ -104,5 +104,33 @@ if (isMobile()) {
   desktopAnimation()
 }
 
+// Viewport height helper for mobile browser UI (fix 100vh gap)
+function setVh() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Compute and expose mobile footer height so content can pad for it
+function setFooterHeight() {
+  const footer = document.getElementById('mobileFooter');
+  if (!footer) return;
+  const h = footer.offsetHeight || footer.clientHeight || 0;
+  document.documentElement.style.setProperty('--footer-height', `${h}px`);
+}
+
+setVh();
+setFooterHeight();
+window.addEventListener('resize', () => { setVh(); setFooterHeight(); });
+window.addEventListener('orientationchange', () => { setVh(); setFooterHeight(); });
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => { setVh(); setFooterHeight(); });
+}
+let _vhScrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(_vhScrollTimeout);
+  _vhScrollTimeout = setTimeout(() => { setVh(); setFooterHeight(); }, 120);
+}, { passive: true });
+window.addEventListener('touchend', () => { setVh(); setFooterHeight(); });
+
 
 
