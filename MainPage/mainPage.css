@@ -15,7 +15,7 @@ body{
     padding:0 !important;
 
 }
-.firrstPage {
+.firstPage {
     background-color: var(--light);
     height: 60dvh;
     background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
@@ -187,13 +187,4 @@ body{
     font-size: 2.8rem;
     line-height: 0rem;
 
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensures padding/border are included in element's total width/height */
-}
-html, body {
-  height: 100%;
 }
