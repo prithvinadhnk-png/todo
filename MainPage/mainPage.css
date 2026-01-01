@@ -16,7 +16,7 @@ body{
 
 }
 @media (max-width: 768px) {
-  .page {
+  .firstPage {
     --bottom-strip: 24px;
   }
 }
