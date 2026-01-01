@@ -12,7 +12,9 @@
 
 .firstPage {
     background-color: var(--light);
-    height: 100vh;
+    /* Use a CSS variable that JS updates to account for mobile browser UI */
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100%;
     background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
     background-size: 120px 120px;
 
