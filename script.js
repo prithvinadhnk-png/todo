@@ -104,24 +104,5 @@ if (isMobile()) {
   desktopAnimation()
 }
 
-// Viewport height helper for mobile browser UI (fix 100vh gap)
-function setVh() {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-setVh();
-window.addEventListener('resize', setVh);
-window.addEventListener('orientationchange', setVh);
-// Listen to visualViewport changes (Chrome mobile) and scrolling to update --vh
-if (window.visualViewport) {
-  window.visualViewport.addEventListener('resize', setVh);
-}
-let _vhScrollTimeout;
-window.addEventListener('scroll', () => {
-  clearTimeout(_vhScrollTimeout);
-  _vhScrollTimeout = setTimeout(setVh, 120);
-}, { passive: true });
-window.addEventListener('touchend', setVh);
-
 
 
