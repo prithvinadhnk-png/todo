@@ -112,6 +112,16 @@ function setVh() {
 setVh();
 window.addEventListener('resize', setVh);
 window.addEventListener('orientationchange', setVh);
+// Listen to visualViewport changes (Chrome mobile) and scrolling to update --vh
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', setVh);
+}
+let _vhScrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(_vhScrollTimeout);
+  _vhScrollTimeout = setTimeout(setVh, 120);
+}, { passive: true });
+window.addEventListener('touchend', setVh);
 
 
 
