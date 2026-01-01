@@ -9,31 +9,55 @@
     --dark: rgb(47, 59, 61);
 
 }
-body{
-    height:100%;
-    margin:0 !important;
-    padding:0 !important;
+
+body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
 
 }
-@media (max-width: 768px) {
-  .firstPage {
-    --bottom-strip: 24px;
-  }
-}
+
 .firstPage {
     background-color: var(--light);
     height: 100dvh;
-    --bottom-strip: 0px;
-    background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
-    background-size: 120px 120px;
-    background:
-    linear-gradient(
-      to top,
-      #38633e var(--bottom-strip),
-      var(--light) var(--bottom-strip)
-    );
+    background-image:
+        /* bottom color strip */
+        linear-gradient(to top,
+            #38633e 1px,
+            transparent 1px),
+
+        /* horizontal grid */
+        linear-gradient(#1749224b 1px, transparent 1px),
+
+        /* vertical grid */
+        linear-gradient(to right, #1749224b 1px, transparent 1px);
+    background-size:
+        100% 100%,
+        /* bottom strip */
+        120px 120px,
+        120px 120px;
+
+    background-position:
+        bottom,
+        top left,
+        top left;
+
+    background-repeat: no-repeat, repeat, repeat;
 
 }
+
+@media (max-width: 768px) {
+    .firstPage {
+        background-image:
+            linear-gradient(to top,
+                #38633e 24px,
+                transparent 24px),
+            linear-gradient(#1749224b 1px, transparent 1px),
+            linear-gradient(to right, #1749224b 1px, transparent 1px);
+    }
+
+}
+
 
 .navfont {
     font-size: 3.5rem;
@@ -185,17 +209,18 @@ body{
     font-weight: bolder;
     color: rgb(172, 226, 173);
     cursor: pointer;
-    
+
 }
+
 .dateElementGreyed {
     padding-block: 0.5rem;
     font-size: 1.9rem;
     font-weight: bold;
     color: rgba(172, 226, 173, 0.171);
-    
+
 }
 
-.menu-icons-mobile i{
+.menu-icons-mobile i {
     font-size: 2.8rem;
     line-height: 0rem;
 
