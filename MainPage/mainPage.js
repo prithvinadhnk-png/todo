@@ -67,6 +67,7 @@ menuicon.forEach(element => {
 })
 
 //search bar colour differing animation while focused
+const searchicon = document.querySelector('.desktop_UI .search-icon')
 const searchbar = document.querySelector('.desktop_UI .menuSearch')
 searchbar.addEventListener('focus', () => {
   animate(searchbar, {
@@ -106,7 +107,6 @@ searchbar.addEventListener('blur', () => {
 })
 
 //search icon animation on pressing enter
-const searchicon = document.querySelector('.desktop_UI .search-icon')
 searchbar.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     animate(searchicon, {
@@ -158,6 +158,10 @@ let weekDay = 0;
 let html = '';
 const weekHeaders = document.querySelectorAll('.dayForAnimation');
 
+const menuCalendarForMobile = document.querySelector('.mobile_UI .test');
+const months = date.toLocaleDateString(undefined, { month: 'long' });
+menuCalendarForMobile.classList.add(`fi-tr-${months.toLowerCase()}-calendar`);
+
 function clearCalendar() {
   // reset counters whenever calendar is rebuilt
 
@@ -176,7 +180,7 @@ function clearCalendar() {
     }
     html += `<div class="dateElement d-flex justify-content-center" data-day='${weekDay}'>${i + 1}</div>`
   }
-  for (let i = 0; i < 42-(firstDay+noOfDays); i++) {
+  for (let i = 0; i < 42 - (firstDay + noOfDays); i++) {
     html += `<div class="dateElementGreyed d-flex justify-content-center">${i + 1}</div>`
   }
   calendarDaysContainer.innerHTML = html;
@@ -192,33 +196,33 @@ function clearCalendar() {
   })
 }
 function animationHover(element, isHovering) {
- 
-  if (!isHovering){
+
+  if (!isHovering) {
     animate(element, {
-        scale: [1],
-        duration: 300,
-        easing: "easeOutElastic(1, .6)",
-        direction: "alternate"
-      })
-      if (element.dataset.day == 0) {
-        animate(weekHeaders[element.dataset.day], {
-          scale: [1],
-          duration: 300,
-          easing: "easeOutElastic(1, .6)",
-          direction: "alternate",
-          color: '#D97742'
-        })
-        return;
-      }
+      scale: [1],
+      duration: 300,
+      easing: "easeOutElastic(1, .6)",
+      direction: "alternate"
+    })
+    if (element.dataset.day == 0) {
       animate(weekHeaders[element.dataset.day], {
         scale: [1],
         duration: 300,
         easing: "easeOutElastic(1, .6)",
         direction: "alternate",
-        color: 'rgb(131, 175, 131)'
+        color: '#D97742'
       })
       return;
-  } 
+    }
+    animate(weekHeaders[element.dataset.day], {
+      scale: [1],
+      duration: 300,
+      easing: "easeOutElastic(1, .6)",
+      direction: "alternate",
+      color: 'rgb(131, 175, 131)'
+    })
+    return;
+  }
   animate(element, {
     scale: [1, 1.3],
     duration: 300,
@@ -266,6 +270,67 @@ nextButton.addEventListener('click', () => {
   clearCalendar();
 });
 
+//Animation for mobileUI bottom menu icons on click
+const mobileMenuIcon = document.querySelectorAll(".mobile_UI .menu-icons-animation");
+const IconText = document.querySelectorAll(".mobile_UI .menu-icon-font");
+mobileMenuIcon.forEach(icon => {
+  icon.style.display = 'inline-block'; // important for inline <i>
+
+  icon.addEventListener('click', e => {
+    let iconData = e.currentTarget.getAttribute('data');
+     
+    icon.classList.add('active')
+
+    IconText.forEach(text => {
+      if (text.getAttribute('data') === iconData) {
+        text.style.transform = 'translateX(50%)';
+        text.classList.add('show');
+        animate(text, {
+          translateY: [20, 0],
+          duration: 300,
+          easing: "easeOutElastic(1, .6)",
+        })
+      } else {
+        text.classList.remove('show');
+      }
+    })
+    if (iconData === 'add-button') {
+      icon.classList.remove('active')
+      animate(icon, {
+        scale: [1, 0.8, 1],
+        duration: 200,
+        easing: "easeOutElastic(1, .6)",
+      })
+    }
+
+    if(icon.classList.contains('active')){
+      animate(icon, {
+        scale: [1.1],
+        translateY: [-25],
+        duration: 200,
+        easing: "easeOutElastic(1, .6)",
+        'background-color': 'rgba(255, 255, 255, 0.57)',
+      })
+    };
+    
+
+    mobileMenuIcon.forEach(otherIcon => {
+      icon.style.display = 'inline-block';
+      if (otherIcon !== icon) {
+        animate(otherIcon, {
+          scale: [1],
+          duration:200,
+          easing: "easeOutElastic(1, .6)",
+          background:'#ffffff00',
+          translateY: [0]  })
+      }
+
+    })
+
+
+  })
+})
+console.log(mobileMenuIcon);
 
 //navbar font animation & listbar & menubar slide-in animation
 const menubar = document.querySelector('.desktop_UI .menubar')
@@ -311,9 +376,12 @@ createTimeline({
 
 
 
+
+
 document.querySelector('.theme-toggle').addEventListener('click', function () {
   this.classList.toggle('theme-toggle--toggled');
 
 });
+
 
 

@@ -98,6 +98,7 @@ closebtn.addEventListener("click", () => {
  
 })
 
+
 if (isMobile()) {
   mobileAnimation()
 } else {

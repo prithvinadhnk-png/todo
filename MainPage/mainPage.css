@@ -9,18 +9,26 @@
     --dark: rgb(47, 59, 61);
 
 }
-body{
-    height:100%;
-    margin:0 !important;
-    padding:0 !important;
+
+body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
 
 }
+
 .firstPage {
     background-color: var(--light);
     height: 100dvh;
     background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
     background-size: 120px 120px;
+}
 
+@media (max-width: 768px) {
+    .firstPage {
+        background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
+        background-size: 89px 89px;
+    }
 }
 
 .navfont {
@@ -100,6 +108,7 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
 }
 
 .content-wrapper {
@@ -173,26 +182,64 @@ body{
     font-weight: bolder;
     color: rgb(172, 226, 173);
     cursor: pointer;
-    
+
 }
+
 .dateElementGreyed {
     padding-block: 0.5rem;
     font-size: 1.9rem;
     font-weight: bold;
     color: rgba(172, 226, 173, 0.171);
-    
+
 }
 
-.menu-icons-mobile i{
-    font-size: 2.8rem;
+.menu-icons-mobile i {
+    font-size: 2rem;
     line-height: 0rem;
-    color: rgb(58, 82, 63);
+    color: rgb(105, 148, 113);
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 1000;
+    transform-origin: center;
+    will-change: transform;
+    border-radius: 50%;
+    height: 3rem;
+    aspect-ratio: 1/1;
 
 }
 
-.bottom-bar-mobileBackground{
-    background-color: #adbd85cc;
+
+
+
+.bottom-bar-mobileBackground {
+    background: linear-gradient(to top, #E7FBB4);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     border-top: 2.5px solid rgba(0, 0, 0, 0.151);
+}
+
+.bottom-bar-mobileBackground div {
+    margin-top: -0.25rem;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon-font {
+    display: none;
+    position: absolute;
+    top: 52%;
+    z-index: 1000;
+    right: 50%;
+    font-size: 0.9rem;
+    color:#f5935b;
+    font-family: "nagaiya", sans-serif !important;
+    font-weight: 1000;
+}
+.menu-icon-font.show {
+  display: block;
+}
+*{
+
 }
