@@ -176,12 +176,8 @@
                         </h1>
                         <i class="fi fi-tr-arrow-small-right arrowNext box right"
                             style="font-size: 1.9rem; color: rgb(234, 255, 235); cursor: pointer;"></i>
-
                     </div>
-
-                    <div class="week ">
-
-
+                    <div class="week">
                         <div class="d-flex justify-content-center dayForAnimation" style="color:#D97742;">Sun</div>
                         <div class="d-flex justify-content-center dayForAnimation">Mon</div>
                         <div class="d-flex justify-content-center dayForAnimation">Tue</div>
@@ -195,43 +191,69 @@
             </div>
         </div>
     </div>
-    <div class="mobile_UI  d-lg-none d-block" style=" padding:0px; margin:0px;">
-        <div class="row d-flex align-items-center g-0 bottom-bar-mobileBackground  menu-icons-mobile p-2 pb-1 "
-            style="border-radius: 0px;  position:fixed; width: 100%; bottom:0rem;  ">
-
+    <div class="mobile_UI  d-lg-none d-block " style=" padding:0px; margin:0px; height:100dvh;">
+        <div class="row bottom-bar-mobileBackground d-flex align-items-center g-0  w-100  p-2 pb-1  "
+            style="border-radius: 0px;  z-index: 1000; position:fixed; bottom:0; left:0; right:0; ;">
             <div class="col">
 
-                <i class="fi fi-tr-rectangle-list d-flex align-items-center justify-content-center menu-icons-animation"
-                    data="0" style="position:relative"></i>
+                <i class="fi fi-tr-rectangle-list menu-icons-animation" data="0" style="position:relative"></i>
                 <p class=" menu-icon-font" data="0">list</p>
 
             </div>
             <div class="col">
-                <i class="fi test d-flex align-items-center justify-content-center   menu-icons-animation" data="1"></i>
+                <i class="fi test menu-icons-animation" data="1"></i>
                 <p class="text-center menu-icon-font" data="1">calendar</p>
             </div>
             <div class="col">
-                <i class="fi fi-tr-add d-flex align-items-center justify-content-center menu-icons-animation  text-center"
-                    style="font-size: 2rem; color:#D97742 " data="add-button"></i>
+                <i class="fi fi-tr-add menu-icons-animation " style="font-size: 2rem; color:#D97742 "
+                    data="add-button"></i>
             </div>
             <div class="col">
-                <i class="fi fi-tr-duration d-flex align-items-center justify-content-center menu-icons-animation"
-                    data="2"></i>
+                <i class="fi fi-tr-duration menu-icons-animation" data="2"></i>
                 <p class="menu-icon-font text-center" data="2">timer</p>
 
             </div>
             <div class="col">
-                <i class="fi fi-tr-circle-user  d-flex align-items-center justify-content-center menu-icons-animation"
-                    data="3"></i>
+                <i class="fi fi-tr-circle-user menu-icons-animation" data="3"></i>
                 <p class="menu-icon-font text-center" data="3">profile</p>
 
             </div>
-
+        </div>
+        <div class="row g-0 w-100 p-3 pb-0 d-flex align-items-center">
+            <h1 class="col-4 magic-growing  my-auto  " style="font-size: 3rem;">To-Do</h1>
+            <div class="input-container col-8 ps-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#00000088"
+                    class="bi bi-search search-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+                <input type="text" class="menuSearch " placeholder="Search your task....">
+            </div>
 
         </div>
+        <div class="row w-100 g-0 ">
 
+            <div class=" col-12 container-fluid mx-auto me-0 task-background nag  ">
 
+                <div class="row filter-task px-2 pt-0  ">
+                    <button class="col-2 rounded-start-3 mt-1 p-1 mx-auto filter-button">all</button>
+                    <button class="col-6 mt-1 mx-auto filter-button"
+                        style="overflow-wrap: break-word;">completed</button>
+                    <button class="col-4 rounded-end-3 mt-1 mx-auto filter-button"
+                        style="border-right: 0px;">pending</button>
+                    <hr style="padding-block: 0rem !important; margin-top: 0.4rem;">
+                    <p style="color: rgba(0, 0, 0, 0.39); font-size: 2.5rem; font-weight: bolder;"
+                        class="text-center py-4">
+                        Your added Tasks <br>
+                        will be visible <br>
+                        Here!</p>
+                </div>
+
+            </div>
+
+        </div>
     </div>
+
 
     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute; overflow:hidden">
         <defs>

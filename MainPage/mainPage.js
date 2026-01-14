@@ -1,5 +1,8 @@
 import { createTimeline, stagger, utils, splitText, animate, spring } from 'https://esm.sh/animejs';;
 
+//mobileUI flagger
+const mobileUI=window.matchMedia("(max-width: 992px)").matches;
+
 //list font hover animation
 const listfont = document.querySelectorAll('.desktop_UI .listfont');
 listfont.forEach(listfonts => {
@@ -67,8 +70,9 @@ menuicon.forEach(element => {
 })
 
 //search bar colour differing animation while focused
-const searchicon = document.querySelector('.desktop_UI .search-icon')
-const searchbar = document.querySelector('.desktop_UI .menuSearch')
+const searchicon = mobileUI ? document.querySelector('.mobile_UI .search-icon') : document.querySelector('.desktop_UI .search-icon');
+
+const searchbar = mobileUI ? document.querySelector('.mobile_UI .menuSearch') : document.querySelector('.desktop_UI .menuSearch')
 searchbar.addEventListener('focus', () => {
   animate(searchbar, {
     rotateX: 25,
@@ -148,7 +152,8 @@ filterbuttons.forEach(button => {
 
 
 //Calendar Month, Year & Date display
-const monthYear = document.querySelector('.desktop_UI .Month-Year');
+
+const monthYear =document.querySelector('.desktop_UI .Month-Year');
 const date = new Date();
 const options = { month: 'long', year: 'numeric' };
 monthYear.textContent = date.toLocaleDateString(undefined, options);
@@ -183,8 +188,9 @@ function clearCalendar() {
   for (let i = 0; i < 42 - (firstDay + noOfDays); i++) {
     html += `<div class="dateElementGreyed d-flex justify-content-center">${i + 1}</div>`
   }
-  calendarDaysContainer.innerHTML = html;
 
+  calendarDaysContainer.innerHTML = html;
+  
   // attach hover listeners to the newly created date elements
   calendarDaysContainer.addEventListener('mouseover', e => {
     if (!e.target.classList.contains('dateElement')) return;
@@ -374,9 +380,17 @@ createTimeline({
 
   .init();
 
+const nav = document.querySelector('.bottom-bar-mobileBackground');
 
+const setNavHeight = () => {
+  document.documentElement.style.setProperty(
+    '--bottom-nav-h',
+    `${nav.offsetHeight+5}px`
+  );
+};
 
-
+setNavHeight();
+window.addEventListener('resize', setNavHeight);
 
 document.querySelector('.theme-toggle').addEventListener('click', function () {
   this.classList.toggle('theme-toggle--toggled');

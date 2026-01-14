@@ -22,14 +22,10 @@ body {
     height: 100dvh;
     background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
     background-size: 120px 120px;
+
 }
 
-@media (max-width: 768px) {
-    .firstPage {
-        background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
-        background-size: 89px 89px;
-    }
-}
+
 
 .navfont {
     font-size: 3.5rem;
@@ -193,7 +189,18 @@ body {
 
 }
 
-.menu-icons-mobile i {
+@media (max-width: 992px) {
+    .firstPage {
+        background-image: linear-gradient(#1749224b 1px, transparent 1px), linear-gradient(to right, #1749224b 1px, transparent 1px);
+        background-size: 0px 0px;
+    }
+    .menuSearch{
+        font-size: 1.2rem !important;
+    }
+
+}
+
+.bottom-bar-mobileBackground i {
     font-size: 2rem;
     line-height: 0rem;
     color: rgb(105, 148, 113);
@@ -205,6 +212,9 @@ body {
     border-radius: 50%;
     height: 3rem;
     aspect-ratio: 1/1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -240,6 +250,11 @@ body {
 .menu-icon-font.show {
   display: block;
 }
-*{
 
+.mobile_UI {
+            padding-bottom: var(--bottom-nav-h) !important;
+
+}
+
+*{
 }
